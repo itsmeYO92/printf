@@ -11,7 +11,7 @@ ssize_t p_string(va_list args)
 	char *str = va_arg(args, char *);
 
 	if (!str)
-		str = "(nil)";
+		return (-1);
 
 	return (write(1, str, _strlen(str)));
 }
