@@ -8,9 +8,10 @@
  * Return: nothing
 */
 
-void _printf(const char * const format, ...)
+ssize_t _printf(const char * const format, ...)
 {
 	unsigned int i = 0, j = 0;
+	ssize_t nob =  0;
 	va_list pars;
 	operation_t ops[] = {
 		{"c", p_char},
@@ -28,14 +29,14 @@ void _printf(const char * const format, ...)
 			{
 				if (*(ops[i].op) == format[j + 1])
 				{
-					ops[i].f(pars);
+					nob += ops[i].f(pars);
 					j++;
 				}
 				i++;
 			}
 		}
 		else
-			write(1, &format[j], 1);
+			nob += write(1, &format[j], 1);
 		j++;
 	}
 
@@ -43,5 +44,6 @@ void _printf(const char * const format, ...)
 
 
 	va_end(pars);
+	return (nob);
 
 }

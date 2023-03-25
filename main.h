@@ -11,12 +11,12 @@
 typedef struct operation
 {
 	char *op;
-	void (*f)(va_list arg);
+	ssize_t (*f)(va_list arg);
 } operation_t;
 
-void _printf(const char * const format, ...);
-void p_char(va_list args);
+ssize_t _printf(const char * const format, ...);
+ssize_t p_char(va_list args);
 int _strlen(char *s);
-void p_string(va_list args);
+ssize_t p_string(va_list args);
 
 #endif
