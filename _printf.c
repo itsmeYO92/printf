@@ -45,7 +45,9 @@ int _printf(const char * const format, ...)
 			}
 			if (notfound == 1)
 			{
-				nob += write(1, "%", 1);
+				if (!format[j + 2])
+					return (-1);
+				nob += write(1, &format[j], 1);
 				j++;
 			}
 		}
