@@ -11,6 +11,7 @@
 int _printf(const char * const format, ...)
 {
 	unsigned int i = 0, j = 0;
+	int checker;
 	ssize_t nob =  0;
 	va_list pars;
 	operation_t ops[] = {
@@ -32,7 +33,10 @@ int _printf(const char * const format, ...)
 			{
 				if (*(ops[i].op) == format[j + 1])
 				{
-					nob += ops[i].f(pars);
+					checker = ops[i].f(pars);
+					if (checker == (-1))
+						return (-1);
+					nob += checker;
 					j++;
 				}
 				i++;
