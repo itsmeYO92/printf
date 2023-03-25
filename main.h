@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
- * struct format - Struct format
+ * struct operation - Struct format
  *
  * @op: The operator
  * @f: The function associated

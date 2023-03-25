@@ -3,7 +3,7 @@
 
 
 /**
- * printf - variadic function to print (simillar to printf)
+ * _printf - variadic function to print (simillar to printf)
  * @format: list of types
  * Return: nothing
 */
