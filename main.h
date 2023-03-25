@@ -14,7 +14,7 @@ typedef struct operation
 	ssize_t (*f)(va_list arg);
 } operation_t;
 
-ssize_t _printf(const char * const format, ...);
+int _printf(const char * const format, ...);
 ssize_t p_char(va_list args);
 int _strlen(char *s);
 ssize_t p_string(va_list args);

@@ -8,7 +8,7 @@
  * Return: nothing
 */
 
-ssize_t _printf(const char * const format, ...)
+int _printf(const char * const format, ...)
 {
 	unsigned int i = 0, j = 0;
 	ssize_t nob =  0;
@@ -18,6 +18,9 @@ ssize_t _printf(const char * const format, ...)
 		{"s", p_string},
 		{NULL, NULL}
 	};
+
+	if (!format)
+		return (-1);
 
 	va_start(pars, format);
 	while (format && format[j] != '\0')
