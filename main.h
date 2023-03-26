@@ -10,13 +10,13 @@
  */
 typedef struct operation
 {
-	char *op;
-	ssize_t (*f)(va_list arg);
+	char type;
+	int (*f)(va_list arg);
 } operation_t;
-
+int (*get(char tipo))(va_list);
 int _printf(const char * const format, ...);
-ssize_t p_char(va_list args);
+int p_char(va_list args);
 int _strlen(char *s);
-ssize_t p_string(va_list args);
+int p_string(va_list args);
 
 #endif

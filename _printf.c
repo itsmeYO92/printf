@@ -10,55 +10,37 @@
 
 int _printf(const char * const format, ...)
 {
-	unsigned int i = 0, j = 0;
-	int checker, notfound;
-	ssize_t nob =  0;  /*number of bytes */
+	int n_bytes =  0;
+	int j;
 	va_list pars;
-	operation_t ops[] = {
-		{"c", p_char},
-		{"s", p_string},
-		{NULL, NULL}
-	};
+	int (*f)(va_list);
 
-	if (!format)
+	if (!format || (format[0] == '%' && format[1] == '\0')) /* If format is NULL*/
 		return (-1);
-	if (!format[0])
-		return (0);
 
 	va_start(pars, format);
-	while (format[j] != '\0')
+	for (j = 0; format[j] != '\0'; j++)
 	{
 		if (format[j] == '%')
 		{
-			i = 0;
-			notfound = 1;
-			while (ops[i].op)
+			if (format[j + 1] != '%')
 			{
-				if (*(ops[i].op) == format[j + 1])
+				f = get(format[j + 1]);
+				if (f == NULL)
+					n_bytes += write(1, &format[j], 1);
+				else
 				{
-					checker = ops[i].f(pars);
-					if (checker != (-1))
-						nob += checker;
+					n_bytes += f(pars);
 					j++;
-					notfound = 0;
 				}
-				i++;
-			}
-			if (notfound == 1)
-			{
-				if (!format[j + 2])
-					return (-1);
-				nob += write(1, &format[j], 1);
-				j++;
 			}
 		}
 		else
-			nob += write(1, &format[j], 1);
-		j++;
+		{
+			n_bytes += write(1, &format[j], 1);
+		}
+
 	}
-
-
 	va_end(pars);
-	return (nob);
-
+	return (n_bytes);
 }
