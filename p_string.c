@@ -11,7 +11,7 @@ int p_string(va_list args)
 	char *str = va_arg(args, char *);
 
 	if (!str)
-		return (-1);
+		str = "(null)";
 
 	return (write(1, str, _strlen(str)));
 }
