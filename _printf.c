@@ -34,7 +34,7 @@ int _printf(const char * const format, ...)
 			}
 			else/* Fix the case of multiple % if more than two show up print them all*/
 			{
-				write(1, &format[j + 1], 1);
+				write(1, &format[j], 1);
 				n_bytes++;
 				j++;
 			}
