@@ -11,6 +11,9 @@ int p_binary(va_list args)
 	int index = 0, i;
 	char bin_array[32];
 
+	if (num == 0)
+		return (write(1, "0", 1));
+
 	while (num > 0)
 	{
 		bin_array[index] = (num % 2) + '0';
