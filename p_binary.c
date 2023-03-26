@@ -24,5 +24,6 @@ int p_binary(va_list args)
 	for (i = index - 1; i >= 0; i--)
 		write(1, &bin_array[i], 1);
 
-	return (index - 1);
+	return (index);
 }
+
