@@ -21,4 +21,8 @@ int p_string(va_list args);
 int p_int(va_list args);
 int p_binary(va_list args);
 int _putchar(char c);
+int p_octal(va_list args);
+int p_hex(va_list args);
+int p_HEX(va_list args);
+int print_hex(int isUpper, unsigned int num);
 #endif

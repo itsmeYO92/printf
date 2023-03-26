@@ -16,6 +16,10 @@ int (*get(char tipo))(va_list)
 		{'b', p_binary},
 		{'i', p_int},
 		{'d', p_int},
+		{'o', p_octal},
+		{'x', p_hex},
+		{'X', p_HEX},
+		{'u', p_int},
 		{'\0', NULL}
 	};
 
