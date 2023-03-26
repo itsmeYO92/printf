@@ -12,7 +12,7 @@ int _printf(const char * const format, ...)
 {
 	unsigned int i = 0, j = 0;
 	int checker, notfound;
-	ssize_t nob =  0;
+	ssize_t nob =  0;  /*number of bytes */
 	va_list pars;
 	operation_t ops[] = {
 		{"c", p_char},
@@ -22,9 +22,11 @@ int _printf(const char * const format, ...)
 
 	if (!format)
 		return (-1);
+	if (!format[0])
+		return (0);
 
 	va_start(pars, format);
-	while (format && format[j] != '\0')
+	while (format[j] != '\0')
 	{
 		if (format[j] == '%')
 		{
@@ -54,8 +56,6 @@ int _printf(const char * const format, ...)
 			nob += write(1, &format[j], 1);
 		j++;
 	}
-
-
 
 
 	va_end(pars);

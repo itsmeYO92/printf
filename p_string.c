@@ -3,7 +3,7 @@
 /**
  * p_string - print a string to the stdio
  * @args: string to print
- * return - number of bytes printed
+ * Return - number of bytes printed
 */
 
 ssize_t p_string(va_list args)
