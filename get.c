@@ -14,6 +14,8 @@ int (*get(char tipo))(va_list)
 		{'c', p_char},
 		{'s', p_string},
 		{'b', p_binary},
+		{'i', p_int},
+		{'d', p_int},
 		{'\0', NULL}
 	};
 
