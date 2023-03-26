@@ -27,7 +27,10 @@ int _printf(const char * const format, ...)
 			{
 				f = get(format[j + 1]);
 				if (f == NULL)
-					n_bytes += write(1, &format[j], 1);
+				{
+					write(1, &format[j], 1);
+					n_bytes++;
+				}
 				else
 				{
 					n_bytes += f(pars);
@@ -37,7 +40,8 @@ int _printf(const char * const format, ...)
 		}
 		else
 		{
-			n_bytes += write(1, &format[j], 1);
+			write(1, &format[j], 1);
+			n_bytes++;
 		}
 
 	}
