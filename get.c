@@ -13,6 +13,7 @@ int (*get(char tipo))(va_list)
 	operation_t opt[] = {
 		{'c', p_char},
 		{'s', p_string},
+		{'b', p_binary},
 		{'\0', NULL}
 	};
 

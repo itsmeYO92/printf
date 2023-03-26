@@ -18,5 +18,6 @@ int _printf(const char * const format, ...);
 int p_char(va_list args);
 int _strlen(char *s);
 int p_string(va_list args);
+int p_binary(va_list args);
 
 #endif
