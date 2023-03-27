@@ -2,4 +2,5 @@ a.out
 main.c
 exp*
 prestaging/
+*.swap
 

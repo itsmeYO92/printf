@@ -20,6 +20,7 @@ int (*get(char tipo))(va_list)
 		{'x', p_hex},
 		{'X', p_HEX},
 		{'u', p_dec},
+		{'S', p_String},
 		{'\0', NULL}
 	};
 

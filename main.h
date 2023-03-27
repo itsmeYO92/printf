@@ -26,4 +26,5 @@ int p_dec(va_list args);
 int p_hex(va_list args);
 int p_HEX(va_list args);
 int print_hex(int isUpper, unsigned int num);
+int p_String(va_list args);
 #endif
