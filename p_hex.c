@@ -6,7 +6,7 @@
  * @num: num to print
  * Return: number of bytes printed
  */
-int print_hex(int isUpper, unsigned int num)
+int print_hex(int isUpper, unsigned long int num)
 {
 	int index = 0, i, step = 7, temp;
 	char bin_array[32];
@@ -40,7 +40,7 @@ int print_hex(int isUpper, unsigned int num)
  */
 int p_hex(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
+	unsigned long int num = va_arg(args, unsigned long int);
 
 	return (print_hex(0, num));
 }
@@ -53,7 +53,27 @@ int p_hex(va_list args)
  */
 int p_HEX(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
+	unsigned long int num = va_arg(args, unsigned long int);
 
 	return (print_hex(1, num));
 }
+
+/**
+ * p_pointer - print an addresse of a variable.
+ * @args: pointer.
+ * Return: number of bytes printed.
+ */
+
+int p_pointer(va_list args)
+{
+	unsigned long int n;
+	int count = 0;
+
+	n = va_arg(args, unsigned long int);
+	if (!n)
+		count += write(1, "(nil)", 5);
+	count += write(1, "0x", 2);
+	count += print_hex(0, n);
+	return (count);
+}
+

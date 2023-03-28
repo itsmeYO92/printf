@@ -25,6 +25,7 @@ int p_octal(va_list args);
 int p_dec(va_list args);
 int p_hex(va_list args);
 int p_HEX(va_list args);
-int print_hex(int isUpper, unsigned int num);
+int print_hex(int isUpper, unsigned long int num);
 int p_String(va_list args);
+int p_pointer(va_list args);
 #endif

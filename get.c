@@ -19,6 +19,7 @@ int (*get(char tipo))(va_list)
 		{'o', p_octal},
 		{'x', p_hex},
 		{'X', p_HEX},
+		{'p', p_pointer},
 		{'u', p_dec},
 		{'S', p_String},
 		{'\0', NULL}

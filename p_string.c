@@ -36,7 +36,7 @@ int p_String(va_list args)
 			count += write(1, "\\x", 2);
 			if (str[i] > 0 && str[i] < 16)
 				count += write(1, "0", 1);
-			count += print_hex(1, (unsigned int)str[i]);
+			count += print_hex(1, (unsigned long int)str[i]);
 		}
 		else
 			count += _putchar(str[i]);
