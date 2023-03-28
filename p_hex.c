@@ -71,7 +71,7 @@ int p_pointer(va_list args)
 
 	n = va_arg(args, unsigned long int);
 	if (!n)
-		count += write(1, "(nil)", 5);
+		return (write(1, "(nil)", 5));
 	count += write(1, "0x", 2);
 	count += print_hex(0, n);
 	return (count);
